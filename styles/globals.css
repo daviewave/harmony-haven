@@ -1,16 +1,995 @@
+/* This block sets some base styles for the HTML document, body, and all elements within them. It removes any padding and margin, sets the font family to a list of system fonts, and ensures that the box-sizing property is set to border-box, which includes padding and border in the element's total width and height. */
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
 }
 
+/* This block targets the scrollbar in WebKit browsers (such as Chrome and Safari) and sets its width to 0px, effectively hiding it. */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* This block targets anchor elements and sets the color to inherit and removes the default underline text decoration. */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+/* This block styles the main container of the application, setting its maximum width to 1400px, centering it horizontally with auto margins, and making it occupy the full width of its parent. */
+.main-container {
+  max-width: 1400px;
+  margin: auto;
+  width: 100%;
+}
+
+/* This block styles a layout element, adding 10px of padding. */
+.layout {
+  padding: 10px;
+}
+
+/* This block styles a container for the navbar, making it a flex container with space-between alignment, adding margin on the top and bottom, and positioning it relatively. */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 18px;
+  position: relative;
+}
+
+/* This block styles a marquee text element, setting the font size, font weight, margin, and color. */
+.marquee-text {
+  font-size: 29px;
+  font-weight: 600;
+  margin: 60px 0px;
+  color: #f02d34;
+}
+
+/* This block styles a marquee container element, setting its position to relative, height to 400px, width to 100%, and hiding horizontal overflow. */
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* This block styles a track element within the marquee container, setting its position to absolute, ensuring the text doesn't wrap, enabling hardware acceleration with will-change, animating it with a marquee animation that lasts 15 seconds and repeats infinitely, and making it 180% wide. */
+.track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+  width: 180%;
+}
+
+/* This block pauses the marquee animation on hover. */
+.track:hover {
+  animation-play-state: paused;
+}
+
+/* This block defines the keyframes for the marquee animation, translating the element from its initial position (0) to the left by 50% of its width. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* This block styles a span element with the class "text-red", adding a red stroke around the text and setting the left margin to 6px. */
+span.text-red {
+  -webkit-text-stroke: 1px #f02d34;
+  margin-left: 6px;
+}
+
+/* This block styles a logo element, setting the color to gray and font size to 18px. */
+.logo {
+  color: gray;
+  font-size: 18px;
+}
+
+/* This block styles a cart icon element, setting the font size to 25px, color to gray, cursor to pointer, position to relative, adding a transition effect to the transform property with a duration of 0.4s and an easing function, removing the border, and setting the background color to transparent. */
+.cart-icon {
+  font-size: 25px;
+  color: gray;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease;
+  border: none;
+  background-color: transparent;
+}
+
+/* This block scales up the cart icon on hover. */
+.cart-icon:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* This block styles a cart item quantity element, positioning it absolutely to the right, setting the font size to 12px, color to #eee, background color to #f02d34, width and height to 18px, border radius to create a circular shape, text alignment to center, and font weight to 600. */
+.cart-item-qty {
+  position: absolute;
+  right: -8px;
+  font-size: 12px;
+  color: #eee;
+  background-color: #f02d34;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* This block styles a products container, making it a flex container with wrapping behavior, centering the items horizontally with justify-content, adding a gap between items, setting margin on the top, and occupying the full width of its parent. */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* This block styles a product card element, setting the cursor to pointer, and adding a transform and transition effect on hover to create a scaling animation. The color is set to #324d67. */
+.product-card {
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  color: #324d67;
+}
+
+/* This block scales up the product card on hover. */
+.product-card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* This block styles a product image element, setting the border radius to create rounded corners, background color to #ebebeb, and adding a transform and transition effect to create a scaling animation. */
+.product-image {
+  border-radius: 15px;
+  background-color: #ebebeb;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+
+/* This block styles a product name element, setting the font weight to 500. */
+.product-name {
+  font-weight: 500;
+}
+
+/* This block styles a product price element, setting the font weight to 800, adding margin on the top, setting the color to black. */
+.product-price {
+  font-weight: 800;
+  margin-top: 6px;
+  color: black;
+}
+
+/* This block styles a hero banner container, adding padding on the top and bottom and left and right, setting the background color to #dcdcdc, adding border radius to create rounded corners, positioning it relatively, setting the height to 500px, adjusting the line height to 0.9, and making it occupy the full width of its parent. */
+.hero-banner-container {
+  padding: 100px 40px;
+  background-color: #dcdcdc;
+  border-radius: 15px;
+  position: relative;
+  height: 500px;
+  line-height: 0.9;
+  width: 100%;
+}
+
+/* This block styles a beats-solo element within the hero banner container, setting the font size to 20px. */
+.hero-banner-container .beats-solo {
+  font-size: 20px;
+}
+
+/* This block styles a button element within the hero banner container, adding border radius to create rounded corners, adding padding on the top and bottom and left and right, setting the background color to #f02d34, setting the text color to white, removing the border, adding margin on the top, setting the font size to 18px, font weight to 500, setting the cursor to pointer, and giving it a high z-index value. */
+.hero-banner-container button {
+  border-radius: 15px;
+  padding: 10px 16px;
+  background-color: #f02d34;
+  color: white;
+  border: none;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 10000 !important;
+}
+
+/* This block styles an h3 heading element within the hero banner container, setting the font size to 4rem and adding margin on the top. */
+.hero-banner-container h3 {
+  font-size: 4rem;
+  margin-top: 4px;
+}
+
+/* This block styles an h1 heading element within the hero banner container, setting the color to white, font size to 10em, adding negative margin on the left to create an overlapping effect, and transforming the text to uppercase. */
+.hero-banner-container h1 {
+  color: white;
+  font-size: 10em;
+  margin-left: -20px;
+  text-transform: uppercase;
+}
+
+/* This block styles a hero banner image element, positioning it absolutely at the top right corner, setting the width and height, and giving it specific dimensions. */
+.hero-banner-image {
+  position: absolute;
+  top: 0%;
+  right: 20%;
+  width: 450px;
+  height: 450px;
+}
+
+/* This block styles a description container, positioning it absolutely at the bottom right corner, setting the width, line height, and color. It also makes it a flex container with a column direction. */
+.desc {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  width: 300px;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  color: #324d67;
+}
+
+/* This block styles paragraphs within the description container, setting the color, font weight, and aligning the text to the end. */
+.desc p {
+  color: #5f5f5f;
+  font-weight: 100;
+  text-align: end;
+}
+
+/* This block styles heading elements within the description container, setting the margin bottom, font weight, font size, and aligning the text to the end. */
+.desc h5 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  /* color: black; */
+  align-self: flex-end;
+}
+
+/* This block styles a products heading container, aligning the text to the center, adding margin on the top and bottom, and setting the color. */
+.products-heading {
+  text-align: center;
+  margin: 40px 0px;
+  color: #324d67;
+}
+
+/* This block styles heading elements within the products heading container, setting the font size and font weight. */
+.products-heading h2 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+/* This block styles paragraphs within the products heading container, setting the font size and font weight. */
+.products-heading p {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+/* This block styles a footer banner container, adding padding on the top and bottom and left and right, setting the background color to #f02d34, adding border radius to create rounded corners, positioning it relatively, setting the height, line height, color, width, and adding margin on the top. */
+.footer-banner-container {
+  padding: 100px 40px;
+  background-color: #f02d34;
+  border-radius: 15px;
+  position: relative;
+  height: 400px;
+  line-height: 1;
+  color: white;
+  width: 100%;
+  margin-top: 120px;
+}
+
+/* This block styles a banner description container, making it a flex container with space-between alignment. */
+.banner-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* This block styles a button within the banner description container, adding border radius to create rounded corners, adding padding on the top and bottom and left and right, setting the background color to white, setting the text color to red, removing the border, adding margin on the top, setting the font size, font weight, and cursor. */
+.banner-desc button {
+  border-radius: 15px;
+  padding: 10px 16px;
+  background-color: white;
+  color: red;
+  border: none;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* This block styles the left section within the banner description container, setting the line height, font weight, font size, and margin left. */
+.banner-desc .left {
+  line-height: 1.4;
+  font-weight: 900;
+  font-size: 80px;
+  margin-left: 25px;
+}
+
+/* This block styles paragraphs within the left section of the banner description container, setting the margin. */
+.banner-desc .left p {
+  margin: 18px;
+}
+
+/* This block styles a footer banner image element, positioning it absolutely at the top left corner, setting the top and left distances, and giving it specific dimensions. */
+.footer-banner-image {
+  position: absolute;
+  /* top: -35%;
+  left: 8%; */
+  top: -25%;
+  left: 25%;
+}
+
+/* This block styles the right section within the banner description container, setting the line height. */
+.banner-desc .right {
+  line-height: 1.4;
+}
+
+/* This block styles the heading element within the right section of the banner description container, setting the font weight and font size. */
+.banner-desc .right h3 {
+  font-weight: 800;
+  font-size: 60px;
+}
+
+/* This block styles paragraphs within the right section of the banner description container, setting the font size. */
+.banner-desc .right p {
+  font-size: 18px;
+}
+
+/* This block styles the company description within the right section of the banner description container, setting the font size and font weight. */
+.banner-desc .right .company-desc {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* This block styles a cart wrapper, setting the width to 100vw (viewport width), setting the background color with transparency, positioning it fixed at the top right corner, and giving it a high z-index value. It also adds a transition effect for all properties with a duration and easing function. */
+.cart-wrapper {
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  /* will-change: transform; */
+  transition: all 1s ease-in-out;
+}
+
+/* This block styles a cart container, setting the height, width, background color, floating it to the right, adding padding on the top and bottom and left and right, positioning it relatively, and creating a stacking context. */
+.cart-container {
+  height: 100vh;
+  width: 600px;
+  background-color: white;
+  float: right;
+  padding: 40px 10px;
+  position: relative;
+}
+
+/* This block styles a footer container, setting the color, text alignment, margin on the top, padding on the top and bottom and left and right, font weight, making it a flex container with a column direction, aligning items to the center, adding a gap between items, and justifying content to the center. */
+.footer-container {
+  color: #324d67;
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px 10px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* This block styles icons within the footer container, setting the font size, and making them a flex container with a gap between items. */
+.footer-container .icons {
+  font-size: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+/* This block styles a cart heading element, making it a flex container with aligned items, setting the font size, font weight, cursor, gap between items, adding margin on the left, removing the border, and setting the background color to transparent. */
+.cart-heading {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  gap: 2px;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+/* This block styles a heading within the cart heading element, adding margin on the left. */
+.cart-heading .heading {
+  margin-left: 10px;
+}
+
+/* This block styles a cart number of items element, adding margin on the left and setting the color. */
+.cart-num-items {
+  margin-left: 10px;
+  color: #f02d34;
+}
+
+/* This block styles an empty cart element, adding margin and setting the text alignment to center. */
+.empty-cart {
+  margin: 40px;
+  text-align: center;
+}
+
+/* This block styles an h3 heading within the empty cart element, setting the font weight and font size. */
+.empty-cart h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* This block styles a cancel element, setting the cursor to pointer. */
+.cancel {
+  cursor: pointer;
+}
+
+/* This block styles a product container, adding margin on the top, enabling vertical scrolling when needed, setting the maximum height, and adding padding. */
+.product-container {
+  margin-top: 15px;
+  overflow: auto;
+  max-height: 70vh;
+  padding: 20px 10px;
+}
+
+/* This block styles a product element, making it a flex container with a gap between items and adding padding. */
+.product {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* This block styles a cart product image within the product element, setting the width, height, border radius to create rounded corners, and background color. */
+.product .cart-product-image {
+  width: 180px;
+  height: 150px;
+  border-radius: 15px;
+  background-color: #ebebeb;
+}
+
+/* This block styles a description container within the item description element, making it a flex container with space-between alignment, setting the width, color, and adding margin on the top. */
+.item-desc .flex {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  color: #324d67;
+}
+
+/* This block styles the bottom section within the item description element, adding margin on the top. */
+.item-desc .bottom {
+  margin-top: 60px;
+}
+
+/* This block styles heading elements within the flex container, setting the font size. */
+.flex h5 {
+  font-size: 24px;
+}
+
+/* This block styles heading elements within the flex container, setting the font size. */
+.flex h4 {
+  font-size: 20px;
+}
+
+/* This block styles a total element, making it a flex container with space-between alignment. */
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* This block styles an h3 heading within the total element, setting the font size. */
+.total h3 {
+  font-size: 22px;
+}
+
+/* This block styles a remove item element, setting the font size, color, and cursor, removing the background and border. */
+.remove-item {
+  font-size: 24px;
+  color: #f02d34;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+/* This block styles a cart bottom section, positioning it absolutely at the bottom right corner, setting the width, padding, and creating a stacking context. */
+.cart-bottom {
+  position: absolute;
+  bottom: 12px;
+  right: 5px;
+  width: 100%;
+  padding: 30px 65px;
+}
+
+/* This block styles a button container, setting the width and margin to auto. */
+.btn-container {
+  width: 400px;
+  margin: auto;
+}
+
+/* This block styles a button, setting the width, maximum width, padding, border radius to create rounded corners, removing the border, setting the font size, margin on the top, text transformation to uppercase, background color, text color, cursor, and creating a scaling animation on hover. */
+.btn {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-top: 40px;
+  text-transform: uppercase;
+  background-color: #f02d34;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+
+/* This block scales up the button on hover. */
+.btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* This block styles a product detail container, making it a flex container with a gap between items, adding margin, and setting the color. */
+.product-detail-container {
+  display: flex;
+  gap: 40px;
+  margin: 40px;
+  margin-top: 60px;
+  color: #324d67;
+}
+
+/* This block styles a product detail image, setting the border radius to create rounded corners, background color, width, height, cursor, and transition effect. */
+.product-detail-image {
+  border-radius: 15px;
+  background-color: #ebebeb;
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+/* This block changes the background color of the product detail image on hover. */
+.product-detail-image:hover {
+  background-color: #f02d34;
+}
+
+/* This block styles a container for small images, making it a flex container with a gap between items and adding margin on the top. */
+.small-images-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* This block styles a small image, setting the border radius to create rounded corners, background color, width, height, and cursor. */
+.small-image {
+  border-radius: 8px;
+  background-color: #ebebeb;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+/* This block styles a selected image, changing the background color to highlight the selected image. */
+.selected-image {
+  background-color: #f02d34;
+}
+
+/* This block styles a reviews section, setting the color, adding margin on the top, making it a flex container with a gap between items, and aligning items to the center. */
+.reviews {
+  color: #f02d34;
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* This block styles heading elements within the product detail description, setting the margin on the top. */
+.product-detail-desc h4 {
+  margin-top: 10px;
+}
+
+/* This block styles paragraphs within the product detail description, setting the margin on the top. */
+.product-detail-desc p {
+  margin-top: 10px;
+}
+
+/* This block styles paragraphs within the reviews section, setting the color and margin on the top. */
+.reviews p {
+  color: #324d67;
+  margin-top: 0px;
+}
+
+/* This block styles a price element within the product detail description, setting the font weight, font size, margin on the top, and color. */
+.product-detail-desc .price {
+  font-weight: 700;
+  font-size: 26px;
+  margin-top: 30px;
+  color: #f02d34;
+}
+
+/* This block styles an old price element within price elements, setting the color and text decoration. */
+.price .old-price,
+.product-price .old-price,
+.price .old-price {
+  color: gray;
+  text-decoration: line-through;
+}
+
+/* This block styles a quantity element within the product detail description, making it a flex container with a gap between items and adding margin on the top. */
+.product-detail-desc .quantity {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* This block styles a buttons element within the product detail description, making it a flex container with a gap between items. */
+.product-detail-desc .buttons {
+  display: flex;
+  gap: 30px;
+}
+
+/* This block styles an add to cart button within the buttons element, setting the padding, border, margin on the top, font size, font weight, background color, text color, cursor, width, and creating a scaling animation on hover. */
+.buttons .add-to-cart {
+  padding: 10px 20px;
+  border: 1px solid #f02d34;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: white;
+  color: #f02d34;
+  cursor: pointer;
+  width: 200px;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+
+/* This block scales up the add to cart button on hover. */
+.buttons .add-to-cart:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* This block styles a buy now button within the buttons element, setting the width, padding, background color, text color, border, margin on the top, font size, font weight, cursor, and creating a scaling animation on hover. */
+.buttons .buy-now {
+  width: 200px;
+  padding: 10px 20px;
+  background-color: #f02d34;
+  color: white;
+  border: none;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+
+/* This block scales up the buy now button on hover. */
+.buttons .buy-now:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* This block styles a quantity description element, setting the border, padding, and creating a square shape. */
+.quantity-desc {
+  border: 1px solid gray;
+  padding: 6px;
+}
+
+/* This block styles span elements within the quantity description, setting the font size, padding, and cursor. */
+.quantity-desc span {
+  font-size: 16px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* This block styles the minus span within the quantity description, adding a border on the right and setting the color. */
+.quantity-desc .minus {
+  border-right: 1px solid gray;
+  color: #f02d34;
+}
+
+/* This block styles the num span within the quantity description, adding a border on the right. */
+.quantity-desc .num {
+  border-right: 1px solid gray;
+  font-size: 20px;
+}
+
+/* This block styles the plus span within the quantity description, setting the color. */
+.quantity-desc .plus {
+  color: rgb(49, 168, 49);
+}
+
+/* This block styles a "May Like" products wrapper, adding margin on the top. */
+.maylike-products-wrapper {
+  margin-top: 120px;
+}
+
+/* This block styles an h2 heading within the "May Like" products wrapper, setting the text alignment to center, adding margin, and setting the color and font size. */
+.maylike-products-wrapper h2 {
+  text-align: center;
+  margin: 50px;
+  color: #324d67;
+  font-size: 28px;
+}
+
+/* This block styles a container for the "May Like" products, making it a flex container with centered justification, adding a gap between items, and adding margin on the top. */
+.maylike-products-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* This block styles a "Max Qty" element, setting the font weight and color. */
+.max-qty {
+  font-weight: 500;
+  color: #f02d34;
+}
+
+/* This block styles success and cancel wrappers, setting the background color and minimum height. */
+.success-wrapper,
+.cancel-wrapper {
+  background-color: white;
+  min-height: 60vh;
+}
+
+/* This block styles success and cancel elements, setting the width, margin to auto, margin on the top, background color, padding, border radius, and making them flex containers with centered justification, alignment, and column direction. */
+.success,
+.cancel {
+  width: 1000px;
+  margin: auto;
+  margin-top: 160px;
+  background-color: #dcdcdc;
+  padding: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* This block styles an icon within the success element, setting the color and font size. */
+.success .icon {
+  color: green;
+  font-size: 40px;
+}
+
+/* This block styles an h2 heading within the success element, setting the text transformation to capitalize, adding margin on the top and bottom, setting the font weight, font size, and color. */
+.success h2 {
+  text-transform: capitalize;
+  margin-top: 15px 0px;
+  font-weight: 900;
+  font-size: 40px;
+  color: #324d67;
+}
+
+/* This block styles an email message within the success element, setting the font size, font weight, and text alignment. */
+.success .email-msg {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* This block styles paragraphs within the cancel element, setting the font size and font weight. */
+.cancel p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* This block styles a description within the success element, setting the font size, font weight, text alignment, margin, and margin on the top. */
+.success .description {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px;
+  margin-top: 30px;
+}
+
+/* This block styles an email within the success description, adding margin on the left and setting the color. */
+.success .description .email {
+  margin-left: 5px;
+  color: #f02d34;
+}
+
+/* This block styles a product max quantity element, adding margin on the top. */
+.product-max-qty {
+  margin-top: 10px;
+}
+
+/* Media query for screen width up to 800px */
+@media screen and (max-width: 800px) {
+  /* Adjusting the height of the hero banner container */
+  .hero-banner-container {
+    height: 560px;
+  }
+
+  /* Adjusting the size and position of the hero banner image */
+  .hero-banner-image {
+    width: 77%;
+    height: 62%;
+    top: -2%;
+    right: -6%;
+  }
+
+  /* Adjusting the height and margin-top of the footer banner container */
+  .footer-banner-container {
+    height: 560px;
+    margin-top: 80px;
+  }
+
+  /* Adjusting the size and position of the footer banner image */
+  .footer-banner-image {
+    width: 77%;
+    left: 30%;
+    top: 6%;
+    height: 56%;
+  }
+
+  /* Modifying the styles of the left section in the banner description */
+  .banner-desc .left h3 {
+    font-weight: 900;
+    font-size: 50px;
+    margin-left: 5px;
+  }
+  .banner-desc .left p {
+    margin: 18px;
+  }
+
+  /* Modifying the styles of the right section in the banner description */
+  .banner-desc .right h3 {
+    font-size: 45px;
+  }
+  .banner-desc .right p {
+    font-size: 18px;
+  }
+  .banner-desc .right .company-desc {
+    font-size: 14px;
+  }
+
+  /* Adjusting the layout and spacing in the banner description */
+  .banner-desc {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Modifying the line height in the hero banner container */
+  .hero-banner-container {
+    line-height: 1.3;
+  }
+
+  /* Modifying the font size of h1 and h3 in the hero banner container */
+  .hero-banner-container h1 {
+    font-size: 50px;
+  }
+  .hero-banner-container h3 {
+    font-size: 40px;
+  }
+
+  /* Adjusting the margin-top and z-index of the button in the hero banner container */
+  .hero-banner-container button {
+    margin-top: 90px;
+    z-index: 10000;
+  }
+
+  /* Adjusting the position of the description in the hero banner container */
+  .desc {
+    bottom: 60px;
+  }
+
+  /* Modifying the layout of the product detail container */
+  .product-detail-container {
+    flex-wrap: wrap;
+  }
+
+  /* Adjusting the size of the product detail image */
+  .product-detail-container .product-detail-image {
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Adjusting the width and padding of the cart container */
+  .cart-container {
+    width: 415px;
+    padding: 4px;
+  }
+
+  /* Adjusting the margin-top of the cart heading */
+  .cart-heading {
+    margin-top: 35px;
+  }
+
+  /* Adjusting the margin-top of the product container */
+  .product-container {
+    margin-top: 10px;
+  }
+
+  /* Adjusting the padding of the product container */
+  .product {
+    padding: 20px 5px;
+  }
+
+  /* Adjusting the size of the cart product image */
+  .product .cart-product-image {
+    width: 25%;
+    height: 25%;
+  }
+
+  /* Adjusting the width of the add to cart and buy now buttons */
+  .buttons .add-to-cart {
+    width: 150px;
+  }
+  .buttons .buy-now {
+    width: 150px;
+  }
+
+  /* Adjusting the margin and padding of the product detail container */
+  .product-detail-container {
+    margin: 20px;
+  }
+
+  /* Modifying the layout and spacing of the item description */
+  .item-desc .flex {
+    width: 200px;
+  }
+  .top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .item-desc .bottom {
+    margin-top: 30px;
+  }
+
+  /* Modifying the font size and color of h5 and h4 in the item description */
+  .flex h5 {
+    font-size: 16px;
+    color: #324d67;
+  }
+  .flex h4 {
+    font-size: 16px;
+    color: black;
+  }
+
+  /* Adjusting the padding of the cart bottom */
+  .cart-bottom {
+    padding: 30px;
+  }
+
+  /* Modifying the font size of h3 in the total section */
+  .total h3 {
+    font-size: 20px;
+  }
+
+  /* Adjusting the width of the track in the marquee animation */
+  .track {
+    animation: marquee 10s linear infinite;
+    width: 550%;
+  }
+
+  /* Adjusting the minimum height of the success and cancel wrappers */
+  .success-wrapper,
+  .cancel-wrapper {
+    min-height: 69vh;
+  }
+
+  /* Adjusting the width, margin-top, and padding of the success and cancel elements */
+  .success,
+  .cancel {
+    width: 370px;
+    margin-top: 100px;
+    padding: 20px;
+  }
+
+  /* Adjusting the height of the success element */
+  .success {
+    height: 350px;
+  }
+
+  /* Modifying the font size of h2 in the success element */
+  .success h2 {
+    font-size: 17px;
+  }
+
+  /* Adjusting the width of the button container */
+  .btn-container {
+    width: 300px;
+    margin: auto;
+  }
 }
