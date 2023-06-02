@@ -684,17 +684,18 @@ span.text-red {
 /* This block styles the minus span within the quantity description, adding a border on the right and setting the color. */
 .quantity-desc .minus {
   border-right: 1px solid gray;
-  color: #f02d34;
+  color: rgb(49, 168, 49);
 }
 
 /* This block styles the num span within the quantity description, adding a border on the right. */
 .quantity-desc .num {
-  border-right: 1px solid gray;
+  /* border-right: 1px solid lightgray; */
   font-size: 20px;
 }
 
 /* This block styles the plus span within the quantity description, setting the color. */
 .quantity-desc .plus {
+  border-left: 1px solid gray;
   color: rgb(49, 168, 49);
 }
 
