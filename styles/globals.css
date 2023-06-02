@@ -1,6 +1,7 @@
 /* This block sets some base styles for the HTML document, body, and all elements within them. It removes any padding and margin, sets the font family to a list of system fonts, and ensures that the box-sizing property is set to border-box, which includes padding and border in the element's total width and height. */
 html,
-body {
+body,
+* {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -297,8 +298,7 @@ span.text-red {
 }
 
 /* This block styles the left section within the banner description container, setting the line height, font weight, font size, and margin left. */
-.banner-desc .left {
-  line-height: 1.4;
+.banner-desc .left h3 {
   font-weight: 900;
   font-size: 80px;
   margin-left: 25px;
@@ -619,6 +619,7 @@ span.text-red {
   display: flex;
   gap: 20px;
   margin-top: 10px;
+  align-items: center;
 }
 
 /* This block styles a buttons element within the product detail description, making it a flex container with a gap between items. */
