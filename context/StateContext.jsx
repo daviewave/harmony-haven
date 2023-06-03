@@ -11,9 +11,33 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState();
-  const [totalQuantities, setTotalQuantities] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+
+  let foundProduct;
+
+  const toggleCartItemQuantity = (id, value) => {
+    foundProduct = cartItems.find((item) => item._id === id);
+
+    if (value === 'increase') {
+      const updatedCartItems = cartItems.map((item) =>
+        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCartItems(updatedCartItems);
+      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
+    } else {
+      if (foundProduct.quantity > 1) {
+        const updatedCartItems = cartItems.map((item) =>
+          item._id === id ? { ...item, quantity: item.quantity - 1 } : item
+        );
+        setCartItems(updatedCartItems);
+        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
+      }
+    }
+  };
 
   const increaseQty = () => {
     setQty((prevQty) => prevQty + 1);
@@ -40,11 +64,13 @@ export const StateContext = ({ children }) => {
 
     if (checkIfProductIsAlreadyInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
-        if (cartProduct._id === product._id)
+        if (cartProduct._id === product._id) {
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
           };
+        }
+        return cartProduct; // return unchanged item if the product IDs don't match
       });
       setCartItems(updatedCartItems);
     } else {
@@ -62,6 +88,7 @@ export const StateContext = ({ children }) => {
     <Context.Provider
       value={{
         showCart,
+        setShowCart,
         cartItems,
         totalPrice,
         totalQuantities,
@@ -69,6 +96,7 @@ export const StateContext = ({ children }) => {
         increaseQty,
         decreaseQty,
         addToCart,
+        toggleCartItemQuantity,
       }}
     >
       {children}
