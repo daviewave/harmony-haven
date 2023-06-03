@@ -34,6 +34,7 @@ const ProductDetails = ({ product, products }) => {
           <div className="small-images-container">
             {image?.map((img, i) => (
               <img
+                key={i}
                 src={urlFor(img)}
                 alt="small-images of product"
                 className={
@@ -132,8 +133,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
-
-  console.log(product);
 
   return {
     props: {
