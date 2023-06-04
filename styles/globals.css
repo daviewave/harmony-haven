@@ -272,6 +272,7 @@ span.text-red {
   border-radius: 15px;
   position: relative;
   height: 400px;
+  height: 35vh;
   line-height: 1;
   color: white;
   width: 100%;
@@ -298,9 +299,21 @@ span.text-red {
 }
 
 /* This block styles the left section within the banner description container, setting the line height, font weight, font size, and margin left. */
+.banner-desc .left h2 {
+  font-weight: 900;
+  font-size: 50px;
+  margin-left: 25px;
+}
+
 .banner-desc .left h3 {
   font-weight: 900;
-  font-size: 80px;
+  font-size: 70px;
+  margin-left: 25px;
+}
+
+.banner-desc .left h4 {
+  font-weight: 900;
+  font-size: 20px;
   margin-left: 25px;
 }
 
@@ -312,10 +325,8 @@ span.text-red {
 /* This block styles a footer banner image element, positioning it absolutely at the top left corner, setting the top and left distances, and giving it specific dimensions. */
 .footer-banner-image {
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
   top: -25%;
-  left: 25%;
+  left: 65%;
 }
 
 /* This block styles the right section within the banner description container, setting the line height. */
@@ -800,35 +811,49 @@ span.text-red {
 @media screen and (max-width: 800px) {
   /* Adjusting the height of the hero banner container */
   .hero-banner-container {
-    height: 560px;
+    height: 60vh;
+    /* height: 560px; */
+    line-height: 1.3;
   }
 
   /* Adjusting the size and position of the hero banner image */
   .hero-banner-image {
     width: 77%;
     height: 62%;
-    top: -2%;
-    right: -6%;
+    top: 40%;
+    right: -10%;
   }
 
   /* Adjusting the height and margin-top of the footer banner container */
   .footer-banner-container {
-    height: 560px;
+    height: 40vh;
     margin-top: 80px;
   }
 
   /* Adjusting the size and position of the footer banner image */
   .footer-banner-image {
     width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%;
+    left: 35%;
+    top: 36%;
+    height: 70%;
   }
 
   /* Modifying the styles of the left section in the banner description */
+  .banner-desc .left h2 {
+    font-weight: 900;
+    font-size: 40px;
+    margin-left: 5px;
+    margin-top: -25px;
+  }
   .banner-desc .left h3 {
     font-weight: 900;
-    font-size: 50px;
+    font-size: 25px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .banner-desc .left h4 {
+    font-weight: 900;
+    font-size: 20px;
     margin-left: 5px;
   }
   .banner-desc .left p {
@@ -850,11 +875,6 @@ span.text-red {
   .banner-desc {
     flex-wrap: wrap;
     gap: 20px;
-  }
-
-  /* Modifying the line height in the hero banner container */
-  .hero-banner-container {
-    line-height: 1.3;
   }
 
   /* Modifying the font size of h1 and h3 in the hero banner container */
